@@ -1,0 +1,39 @@
+name: Publish to NuGet.org
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Build on GitHub hosted server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Materialize Signing Key
+        id: write_sign_key_file
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'Key.snk'
+          encodedString: ${{ secrets.SIGNING_KEY }}
+      - name: Build extension
+        run: dotnet build ./DockerTesting.sln
+        env:
+          SignAssembly: true
+          AssemblyOriginatorKeyFile: ${{ steps.write_sign_key_file.outputs.filePath }}
+      
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "tests/**/*nupkg"
+          target: ./artifacts/
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: ./artifacts/*
