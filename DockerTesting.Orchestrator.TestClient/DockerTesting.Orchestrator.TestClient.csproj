@@ -3,7 +3,7 @@
     <PropertyGroup Label="Globals">
       <TargetFramework>net472</TargetFramework>
       <OutputType>Exe</OutputType>
-      <Configurations>Debug;Release;PACK</Configurations>
+      <Configurations>Debug;Release</Configurations>
       <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 

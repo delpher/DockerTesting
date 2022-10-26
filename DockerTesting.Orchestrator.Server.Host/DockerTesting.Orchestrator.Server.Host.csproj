@@ -8,7 +8,7 @@
         <NuspecFile>DockerTesting.Orchestrator.Server.Host.nuspec</NuspecFile>
         <OutDir>$(SolutionDir)DockerTesting.Orchestrator.Server.Host\bin\$(Configuration)\DockerTesting.Orchestrator</OutDir>
         <NoWarn>NU5100</NoWarn>
-        <Configurations>Debug;Release;PACK</Configurations>
+        <Configurations>Debug;Release</Configurations>
         <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 

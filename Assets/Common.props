@@ -1,0 +1,15 @@
+<Project>
+    <PropertyGroup>
+        <Authors>Delpher</Authors>
+        <Copyright>Delpher©2022</Copyright>
+        <RepositoryUrl>https://github.com/delpher/DockerTesting</RepositoryUrl>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Nullable>disable</Nullable>
+        <LangVersion>latest</LangVersion>        
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+</Project>

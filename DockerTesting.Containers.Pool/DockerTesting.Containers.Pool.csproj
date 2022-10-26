@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DockerTesting.Containers\DockerTesting.Containers.csproj" />
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Client\DockerTesting.Orchestrator.Client.csproj" />
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Server.Utils\DockerTesting.Orchestrator.Server.Utils.csproj" />
+    </ItemGroup>
+
+</Project>
