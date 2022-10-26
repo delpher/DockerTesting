@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+      <TargetFramework>net472</TargetFramework>
+      <Configurations>Debug;Release;PACK</Configurations>
+      <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector" Version="3.1.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="FluentAssertions" Version="6.6.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DockerTesting.Containers\DockerTesting.Containers.csproj" />
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Client\DockerTesting.Orchestrator.Client.csproj" />
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Server\DockerTesting.Orchestrator.Server.csproj" />
+    </ItemGroup>
+
+</Project>

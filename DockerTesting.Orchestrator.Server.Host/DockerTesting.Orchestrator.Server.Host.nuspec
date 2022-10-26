@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>DockerTesting.Orchestrator.Server.Host</id>
+        <title>DockerTesting.Orchestrator.Server.Host</title>
+        <authors>ITU</authors>
+        <version>1.0.4</version>
+        <description>The package adds host application to run DockerTesting.Orchestrator.Server used to orchestrate tests interaction with Docker service</description>
+        <copyright>ITU © 2022</copyright>
+        <dependencies>
+            <group targetFramework="net472" />
+            <group targetFramework="netstandard2.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\DockerTesting.Orchestrator\*.dll" target="buildTransitive\DockerTesting.Orchestrator" />
+        <file src="bin\Release\DockerTesting.Orchestrator\*.exe" target="buildTransitive\DockerTesting.Orchestrator" />
+        <file src="bin\Release\DockerTesting.Orchestrator\*.exe.config" target="buildTransitive\DockerTesting.Orchestrator" />
+        <file src="bin\Release\DockerTesting.Orchestrator\*.dll" target="build\DockerTesting.Orchestrator" />
+        <file src="bin\Release\DockerTesting.Orchestrator\*.exe" target="build\DockerTesting.Orchestrator" />
+        <file src="bin\Release\DockerTesting.Orchestrator\*.exe.config" target="build\DockerTesting.Orchestrator" />
+        <file src="DockerTesting.Orchestrator.Server.Host.targets" target="buildTransitive\" />
+        <file src="DockerTesting.Orchestrator.Server.Host.targets" target="build\" />
+        <file src="_._" target="lib\net472" />
+        <file src="_._" target="lib\netstandard2.0" />
+    </files>
+</package>

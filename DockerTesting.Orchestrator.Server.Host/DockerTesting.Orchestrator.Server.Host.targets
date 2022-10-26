@@ -1,0 +1,29 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Target Name="SetOrchestratorFiles" BeforeTargets="PipelineCollectFilesPhase">
+        <ItemGroup>
+            <OrchestratorFiles Include="$(MSBuildThisFileDirectory)\DockerTesting.Orchestrator\**\*.dll">
+                <Link>DockerTesting.Orchestrator\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            </OrchestratorFiles>
+            <OrchestratorFiles Include="$(MSBuildThisFileDirectory)\DockerTesting.Orchestrator\**\*.exe">
+                <Link>DockerTesting.Orchestrator\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            </OrchestratorFiles>
+            <OrchestratorFiles Include="$(MSBuildThisFileDirectory)\DockerTesting.Orchestrator\**\*.exe.config">
+                <Link>DockerTesting.Orchestrator\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            </OrchestratorFiles>
+        </ItemGroup>
+    </Target>
+
+    <Target Name="LocateOrchestratorDestinationFolder" Condition=" '$(OrchestratorDestinationFolder)' == '' ">
+        <PropertyGroup>
+            <OrchestratorDestinationFolder>$(WebProjectOutputDir)\bin\DockerTesting.Orchestrator</OrchestratorDestinationFolder>
+            <OrchestratorDestinationFolder Condition=" '$(WebProjectOutputDir)' == '' ">$(OutputPath)\DockerTesting.Orchestrator</OrchestratorDestinationFolder>
+        </PropertyGroup>
+    </Target>
+
+    <Target Name="CopyOrchestratorFilesToOutputDirectory" AfterTargets="CopyFilesToOutputDirectory" DependsOnTargets="LocateOrchestratorDestinationFolder;SetOrchestratorFiles">
+        <Copy SourceFiles="@(OrchestratorFiles)" DestinationFolder="$(OrchestratorDestinationFolder)" ContinueOnError="true" SkipUnchangedFiles="true" Retries="0"/>
+        <ItemGroup Condition="'$(MSBuildLastTaskResult)' == 'True'">
+            <FileWrites Include="$(OrchestratorDestinationFolder)\*"/>
+        </ItemGroup>
+    </Target>
+</Project>

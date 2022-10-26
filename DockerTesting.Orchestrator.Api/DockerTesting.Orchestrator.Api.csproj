@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Configurations>Debug;Release;PACK</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageVersion>1.0.1</PackageVersion>
+        <Title>DockerTesting.Orchestrator.Api</Title>
+        <Authors>ITU</Authors>
+        <Description>RPC API declaration classes for Docker Testing Orchestrator</Description>
+        <Copyright>ITU @ 2020</Copyright>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>

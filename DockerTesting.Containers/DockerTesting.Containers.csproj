@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+      <TargetFramework>netstandard2.0</TargetFramework>
+      <Configurations>Debug;Release;PACK</Configurations>
+      <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.2</Version>
+        <Title>DockerTesting.Containers</Title>
+        <Authors>ITU</Authors>
+        <Description>Base classes to create test container with Docker</Description>
+        <Copyright>ITU © 2020</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Docker.DotNet" Version="3.125.5" />
+    </ItemGroup>
+
+</Project>

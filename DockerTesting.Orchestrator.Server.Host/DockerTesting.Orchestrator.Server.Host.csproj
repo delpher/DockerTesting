@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net472</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <NuspecFile>DockerTesting.Orchestrator.Server.Host.nuspec</NuspecFile>
+        <OutDir>$(SolutionDir)DockerTesting.Orchestrator.Server.Host\bin\$(Configuration)\DockerTesting.Orchestrator</OutDir>
+        <NoWarn>NU5100</NoWarn>
+        <Configurations>Debug;Release;PACK</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DockerTesting.Orchestrator.Server.Utils\DockerTesting.Orchestrator.Server.Utils.csproj">
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\DockerTesting.Orchestrator.Server\DockerTesting.Orchestrator.Server.csproj">
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="obj\**" />
+        <EmbeddedResource Remove="obj\**" />
+        <None Remove="obj\**" />
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    
+</Project>

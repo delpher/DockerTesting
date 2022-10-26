@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+      <TargetFramework>netstandard2.0</TargetFramework>
+      <Configurations>Debug;Release;PACK</Configurations>
+      <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>DockerTesting.Orchestrator.Server</Title>
+        <Authors>ITU</Authors>
+        <Description>Docker Testing Orchestrator server implementation</Description>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Api\DockerTesting.Orchestrator.Api.csproj" />
+      <ProjectReference Include="..\DockerTesting.Orchestrator.Server.Utils\DockerTesting.Orchestrator.Server.Utils.csproj" />
+      <ProjectReference Include="..\NamedPipesRpc.Core\NamedPipesRpc.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Docker.DotNet" Version="3.125.5" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>

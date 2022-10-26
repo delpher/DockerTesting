@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageVersion>1.0.4</PackageVersion>
+        <Title>DockerTesting.Orchestrator.Client</Title>
+        <Authors>ITU</Authors>
+        <Description>Client for Docker Testing Orchestrator. This package to be installed on Test projects that use Docker Testing</Description>
+        <Copyright>ITU @ 2020</Copyright>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.3</Version>
+        <AssemblyOriginatorKeyFile>..\..\..\lib3rdparty\Keys\Itu.Keys.snk</AssemblyOriginatorKeyFile>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+        <Configurations>Debug;Release;PACK</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DockerTesting.Orchestrator.Api\DockerTesting.Orchestrator.Api.csproj">
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\DockerTesting.Orchestrator.Server.Utils\DockerTesting.Orchestrator.Server.Utils.csproj">
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+        <ProjectReference Include="..\NamedPipesRpc.Core\NamedPipesRpc.Core.csproj">
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+            <IncludeAssets>all</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Docker.DotNet" Version="3.125.5" />
+        <PackageReference Include="DockerTesting.Orchestrator.Server.Host" Version="1.0.4" />
+        <PackageReference Include="ITU.BR.PackagingTools.NuGetPackage" Version="1.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
+
+</Project>
